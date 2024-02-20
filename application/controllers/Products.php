@@ -35,6 +35,19 @@ class Products extends CI_Controller {
         $this->load->view('admin_products');
     }
 
+	public function add_product_process()
+	{
+		var_dump($this->input->post());
+		$validation = $this->Product->add_product_validation();
+
+		if ($validation != NULL) {
+            $this->session->set_flashdata('input_errors', $validation);
+            redirect("products/admin_products", "refresh");
+        } else {
+            echo "voila"; 
+        }
+	}
+
 	public function is_login()
     {
         $is_login = $this->session->userdata('user_id');

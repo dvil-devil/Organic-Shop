@@ -47,7 +47,7 @@ class Users extends CI_Controller
     public function login_process()
     {
         $result = $this->User->login_form_validation();
-        if ($result != 'success') {
+        if ($result != NULL) {
             $this->session->set_flashdata('input_errors', $result);
             redirect("login");
         } else {

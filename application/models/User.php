@@ -54,9 +54,6 @@ class User extends CI_Model
         if(!$this->form_validation->run()) {
             return validation_errors();
         } 
-        else {
-            return "success";
-        }
     }
 
     function login_authentication($user, $password) 

@@ -18,13 +18,23 @@
 </head>
 <script>
     $(document).ready(function() {
-        $("form").submit(function(event) {
+        $("#add_product_form").submit(function(event) {
             event.preventDefault();
-            return false;
-        });
-        /* prototype add */
-        $(".switch").click(function() {
-            window.location.href = "products_dashboard";
+            // Validate form fields
+            var isValid = true;
+            $(this).find("input, textarea").each(function() {
+            if ($(this).attr("required") && $(this).val().trim() === "") {
+                isValid = false;
+                $(this).addClass("error");
+            } else {
+                $(this).removeClass("error");
+            }
+            });
+            // If form is valid, submit the form
+            if (isValid) {
+                $(this).unbind('submit').submit();
+                $("#add_product_modal").modal("hide");
+            }
         });
     });
 </script>
@@ -55,7 +65,9 @@
         </aside>
         <section>
             <form action="process.php" method="post" class="search_form">
+                <?php echo form_open(); ?>
                 <input type="text" name="search" placeholder="Search Products">
+                <?php echo form_close(); ?>
             </form>
             <button class="add_product" data-toggle="modal" data-target="#add_product_modal">Add Product</button>
             <form action="process.php" method="post" class="status_form">
@@ -374,7 +386,8 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <button data-dismiss="modal" aria-label="Close" class="close_modal"></button>
-                    <form class="delete_product_form" action="process.php" method="post">
+                    <form id="add_product_form" class="delete_product_form" action="add_product_process" method="post">
+                        <?php echo form_open(); ?>
                         <h2>Add a Product</h2>
                         <ul>
                             <li>
@@ -413,6 +426,7 @@
                         </ul>
                         <button type="button" data-dismiss="modal" aria-label="Close">Cancel</button>
                         <button type="submit">Save</button>
+                        <?php echo form_close(); ?>
                     </form>
                 </div>
             </div>
