@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $("body").on("click", ".increase_decrease_quantity", function() {
-        console.log("Wew");
         let input = $(this).parents().siblings('input');
         let input_val = parseInt(input.val());
 
@@ -14,7 +13,7 @@ $(document).ready(function(){
         };
 
         let total_amount = parseInt(input.val()) * parseInt(($(".amount").text()).substring(2));
-        $("#add_to_cart_form").find(".total_amount").text("$ " + total_amount);
+        $("#add_to_cart_form").find(".total_amount").text("P " + total_amount);
     });
 
     $("body").on("click", ".show_image", function() {
@@ -27,15 +26,16 @@ $(document).ready(function(){
 
     $("body").on("submit", "#add_to_cart_form", function() {
         let form = $(this);
-
         $.post(form.attr("action"), form.serialize(), function(res) {
+            $.get('/products/get_cart', function(res) {
+                $(".show_cart").html(res);
+            });
             $(".content_section").html(res);
             $("#success_modal").modal("show");
             setTimeout(function() {
                 $("#success_modal").modal("hide")
             }, 1200);
         });
-
         return false;
     });
 });

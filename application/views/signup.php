@@ -24,47 +24,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
     $(document).ready(function() {
         /* prototype add */
-        // $("form").submit(function(event) {
-        //     event.preventDefault();
-        //     return false;
+        $("form").submit(function(event) {
+            var isValid = true;
+            $('input[type="text"], input[type="email"], input[type="password"]').each(function() {
+                if ($(this).val() === '') {
+                    $(this).addClass('error');
+                    isValid = false;
+                } else {
+                    $(this).removeClass('error');
+                }
+            });
 
-        //     var isValid = true;
-        //     $('input[type="text"], input[type="email"], input[type="password"]').each(function() {
-        //         if ($(this).val() === '') {
-        //             $(this).addClass('error');
-        //             isValid = false;
-        //         } else {
-        //             $(this).removeClass('error');
-        //         }
-        //     });
+            if ($('input[name="password"]').val() !== $('input[name="confirm_password"]').val()) {
+                $('input[name="confirm_password"]').addClass('error');
+                isValid = false;
+            } else {
+                $('input[name="confirm_password"]').removeClass('error');
+            }
 
-        //     if ($('input[name="password"]').val() !== $('input[name="confirm_password"]').val()) {
-        //         $('input[name="confirm_password"]').addClass('error');
-        //         isValid = false;
-        //     } else {
-        //         $('input[name="confirm_password"]').removeClass('error');
-        //     }
+            if (isValid) {
+                $("form").unbind('submit').submit();
+            }
+        });
 
-        //     if (isValid) {
-        //         $("form").unbind('submit').submit();
-        //     }
-        // });
+        $('input[type="text"], input[type="email"], input[type="password"]').blur(function() {
+            if ($(this).val() === '') {
+                $(this).addClass('error');
+            } else {
+                $(this).removeClass('error');
+            }
+        });
 
-        // $('input[type="text"], input[type="email"], input[type="password"]').blur(function() {
-        //     if ($(this).val() === '') {
-        //         $(this).addClass('error');
-        //     } else {
-        //         $(this).removeClass('error');
-        //     }
-        // });
+        $('input[type="password"]').keyup(function() {
+            if ($('input[name="password"]').val() === $('input[name="confirm_password"]').val()) {
+                $('input[name="confirm_password"]').removeClass('error');
+            } else {
+                $('input[name="confirm_password"]').addClass('error');
+            }
+        });
 
-        // $('input[type="password"]').keyup(function() {
-        //     if ($('input[name="password"]').val() === $('input[name="confirm_password"]').val()) {
-        //         $('input[name="confirm_password"]').removeClass('error');
-        //     } else {
-        //         $('input[name="confirm_password"]').addClass('error');
-        //     }
-        // });
     });
 </script>
 <body>
@@ -99,9 +97,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <button class="signup_btn" type="submit">Signup</button>
             <?php echo form_close(); ?>
         </form>
-<?php   if($this->session->flashdata("input_errors")){
-        echo $this->session->flashdata("input_errors");
-}?>
+<?php   if($this->session->flashdata("input_errors")){?>
+        <div class="alert">
+            <?= $this->session->flashdata("input_errors")?>
+        </div>
+<?php   }?>
     </div>
 </body>
 </html>

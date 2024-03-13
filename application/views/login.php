@@ -16,8 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="../assets/js/vendor/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-select.min.css">
-
     <script src="../assets/js/global/dashboard.js"></script>
+    <script src="../assets/js/global/global.js"></script>
     <link rel="stylesheet" href="../assets/css/custom/global.css">
     <link rel="stylesheet" href="../assets/css/custom/signup.css">
 </head>
@@ -59,8 +59,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php echo form_close(); ?>
         </form>
     </div>
-<?php   if($this->session->flashdata("input_errors")){
-        echo $this->session->flashdata("input_errors");
-}?>
+<?php   if($this->session->flashdata("success")){?>
+        <div class="alert">
+            <p class="message_box success"><?= $this->session->flashdata("success")?></p>
+        </div>
+<?php   }?>
+<?php   if($this->session->flashdata("input_errors")){?>
+        <div class="alert">
+            <?= $this->session->flashdata("input_errors")?>
+        </div>
+<?php   }?>
 </body>
 </html>

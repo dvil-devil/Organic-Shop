@@ -144,9 +144,9 @@ body .wrapper > section > ul > li:last-child .amount {
   height: 32px;
   margin-top: 4px;
   min-width: 50px;
+  max-width: 100px;
   padding: 9px 10px;
   text-align: center;
-  width: 77px;
 }
 body .wrapper > section > ul > li:last-child p {
   color: #7D7D7D;
@@ -322,6 +322,7 @@ body .wrapper > section > section > ul > li a > span {
   font: 11px/16px roboto_regular, sans-serif;
   vertical-align: top;
 }
+
 body .wrapper #success_modal .modal-dialog {
   max-width: 557px;
 }
@@ -331,7 +332,7 @@ body .wrapper #success_modal .modal-dialog .modal-content {
 body .wrapper #success_modal .modal-dialog .modal-content button {
   width: 14px;
   height: 14px;
-  background-image: url("../../images/close.svg");
+  background-image: url("../assets/images/close.svg");
   position: absolute;
   right: 32px;
   top: 44px;
@@ -339,7 +340,6 @@ body .wrapper #success_modal .modal-dialog .modal-content button {
 body .wrapper #success_modal .modal-dialog .modal-content h3 {
   font: 18px/32px roboto_medium, sans-serif;
   color: #7D7D7D;
-  margin: 33px 32px;
 }
 body .wrapper #success_modal .modal-dialog .modal-content h3::before {
   width: 33px;
@@ -347,7 +347,7 @@ body .wrapper #success_modal .modal-dialog .modal-content h3::before {
   content: "";
   display: inline-block;
   vertical-align: top;
-  background-image: url("../../images/check.svg");
+  background-image: url("../assets/images/check.svg");
   margin-right: 15px;
 }
 .added_to_cart{
@@ -358,4 +358,11 @@ body .wrapper #success_modal .modal-dialog .modal-content h3::before {
   position: absolute;
   top: 50px;
   margin-left: 50px;
+}
+.modal{
+  width: 575px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate( -50%, -50%);
 }

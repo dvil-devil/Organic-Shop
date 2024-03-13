@@ -2,51 +2,63 @@
   margin: 0px;
   padding: 0px;
 }
+
 @font-face {
   font-family: roboto_light;
   src: url("../../fonts/Roboto-Light.ttf");
 }
+
 @font-face {
   font-family: roboto_regular;
   src: url("../../fonts/Roboto-Regular.ttf");
 }
+
 @font-face {
   font-family: roboto_medium;
   src: url("../../fonts/Roboto-Medium.ttf");
 }
+
 @font-face {
   font-family: roboto_bold;
   src: url("../../fonts/Roboto-Bold.ttf");
 }
+
 @font-face {
   font-family: roboto_black;
   src: url("../../fonts/Roboto-BLack.ttf");
 }
+
 @font-face {
   font-family: proxima_nova_regular;
   src: url("../../fonts/ProximaNova-Regular.otf");
 }
+
 @font-face {
   font-family: proxima_nova_black;
   src: url("../../fonts/Proxima Nova Black.otf");
 }
+
 @font-face {
   font-family: proxima_nova_bold;
   src: url("../../fonts/Proxima Nova Bold.otf");
 }
+
 @font-face {
   font-family: proxima_nova_extra_bold;
   src: url("../../fonts/Proxima Nova Extrabold.otf");
 }
+
 @font-face {
   font-family: proxima_nova_thin;
   src: url("../../fonts/Proxima Nova Thin.otf");
 }
+
 @font-face {
   font-family: proxima_nova_thin;
   src: url("../../fonts/Proxima Nova Thin.otf");
 }
-body .wrapper > section .categories_form {
+
+body .wrapper>section .categories_form {
   display: inline-block;
   left: 140px;
   position: absolute;
@@ -54,12 +66,14 @@ body .wrapper > section .categories_form {
   vertical-align: top;
   width: 117px;
 }
-body .wrapper > section .categories_form h3 {
+
+body .wrapper>section .categories_form h3 {
   color: #A1A1A1;
   font: 18px/22px proxima_nova_bold, sans-serif;
   margin-bottom: 23px;
 }
-body .wrapper > section .categories_form ul li button {
+
+body .wrapper>section .categories_form ul li button {
   background-color: #fff;
   border-radius: 15px;
   border: 2px solid #fff;
@@ -70,10 +84,12 @@ body .wrapper > section .categories_form ul li button {
   width: 90px;
   box-shadow: 0px 3.17949px 11.9231px rgba(201, 201, 201, 0.2);
 }
-body .wrapper > section .categories_form ul li button.active {
+
+body .wrapper>section .categories_form ul li button.active {
   border: 2px solid #CFC6FF;
 }
-body .wrapper > section .categories_form ul li button span {
+
+body .wrapper>section .categories_form ul li button span {
   background-color: #EDE9FF;
   border-radius: 50%;
   color: #9987FA;
@@ -87,59 +103,69 @@ body .wrapper > section .categories_form ul li button span {
   top: 5px;
   vertical-align: top;
 }
-body .wrapper > section .categories_form ul li button h4 {
+
+body .wrapper>section .categories_form ul li button h4 {
   color: #A1A1A1;
   font: 11px/14px proxima_nova_reglar, sans-serif;
   text-transform: capitalize;
 }
-body .wrapper > section .categories_form ul li button:hover {
+
+body .wrapper>section .categories_form ul li button:hover {
   box-shadow: 0px 3.17949px 11.9231px rgba(156, 137, 255, 0.45);
 }
-body .wrapper > section .categories_form ul li button img {
+
+body .wrapper>section .categories_form ul li button img {
   margin-bottom: 4px;
   margin-top: 12px;
   width: 41px;
   height: 41px;
   object-fit: cover;
 }
-body .wrapper > section > div {
+
+body .wrapper>section>div {
   padding-left: 195px;
 }
-body .wrapper > section > div h3 {
+
+body .wrapper>section>div h3 {
   color: #A1A1A1;
   font: 18px/22px proxima_nova_bold, sans-serif;
   margin-bottom: 23px;
   text-transform: capitalize;
 }
-body .wrapper > section > div > ul {
+
+body .wrapper>section>div>.product_list {
   font-size: 0px;
 }
-body .wrapper > section > div > ul > li {
+
+body .wrapper>section>div>.product_list>li {
   background-color: #fff;
   border-radius: 20px;
   border: 2px solid #fff;
   box-shadow: 0px 4.37332px 21.8666px rgba(0, 0, 0, 0.07);
   display: inline-block;
   height: 280px;
-  margin-bottom: 46px;
+  margin-bottom: 30px;
   margin-right: 17px;
   position: relative;
   transition: 0.21s;
   width: 245px;
 }
-body .wrapper > section > div > ul > li:hover {
+
+body .wrapper>section>div>.product_list>li:hover {
   border: 2px solid #CFC6FF;
   box-shadow: 0px 4.37332px 21.87px rgba(143, 94, 205, 0.34);
   transform: scale(1.03);
 }
-body .wrapper > section > div > ul > li.empty {
+
+body .wrapper>section>div>.product_list>li.empty {
   width: 100%;
   display: block;
   height: 100px;
   text-align: center;
   padding: 37px 0px;
 }
-body .wrapper > section > div > ul > li a {
+
+body .wrapper>section>div>.product_list>li a {
   display: inline-block;
   height: 280px;
   padding: 219px 15px 0px 15px;
@@ -148,7 +174,8 @@ body .wrapper > section > div > ul > li a {
   vertical-align: top;
   width: 100%;
 }
-body .wrapper > section > div > ul > li a img {
+
+body .wrapper>section>div>.product_list>li a img {
   left: -2px;
   position: absolute;
   top: -2px;
@@ -156,23 +183,28 @@ body .wrapper > section > div > ul > li a img {
   height: 202px;
   object-fit: cover;
 }
-body .wrapper > section > div > ul > li a h3 {
+
+body .wrapper>section>div>.product_list>li a h3 {
   color: #7D7D7D;
   font: 14px/20px roboto_medium, sans-serif;
   margin: 0px 0px 4px 0px;
 }
-body .wrapper > section > div > ul > li a img {
+
+body .wrapper>section>div>.product_list>li a img {
   border-radius: 20px 20px 0px 0px;
 }
-body .wrapper > section > div > ul > li a:nth-child(5n+5) {
+
+body .wrapper>section>div>.product_list>li a:nth-child(5n+5) {
   margin-right: 0px;
 }
-body .wrapper > section > div > ul > li a .rating {
+
+body .wrapper>section>div>.product_list>li a .rating {
   display: inline-block;
   font-size: 0px;
   vertical-align: top;
 }
-body .wrapper > section > div > ul > li a .rating li {
+
+body .wrapper>section>div>.product_list>li a .rating li {
   background-image: url("../../images/star.svg");
   display: inline-block;
   height: 13px;
@@ -180,12 +212,14 @@ body .wrapper > section > div > ul > li a .rating li {
   vertical-align: top;
   width: 13px;
 }
-body .wrapper > section > div > ul > li a .category {
+
+body .wrapper>section>div>.product_list>li a .category {
   display: inline-block;
   vertical-align: top;
   text-transform: capitalize;
 }
-body .wrapper > section > div > ul > li a .category::before {
+
+body .wrapper>section>div>.product_list>li a .category::before {
   background-image: url("../../images/star.svg");
   display: inline-block;
   height: 13px;
@@ -194,7 +228,8 @@ body .wrapper > section > div > ul > li a .category::before {
   width: 13px;
   content: "";
 }
-body .wrapper > section > div > ul > li a .price {
+
+body .wrapper>section>div>.product_list>li a .price {
   background-color: #F1F1F1;
   border-radius: 33px;
   bottom: 25px;
@@ -207,9 +242,42 @@ body .wrapper > section > div > ul > li a .price {
   right: 15px;
   vertical-align: top;
 }
-body .wrapper > section > div > ul > li a > span {
+
+body .wrapper>section>div>.product_list>li a>span {
   color: #7D7D7D;
   display: inline-block;
   font: 11px/16px roboto_regular, sans-serif;
   vertical-align: top;
+}
+
+.pagination {
+  display: block;
+  text-align: right;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-right: 46px;
+  margin-bottom: 46px;
+}
+
+.pagination li {
+  display: inline;
+}
+
+.pagination li a {
+  color: black;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  margin-left: -1px;
+}
+
+.pagination li a:hover {
+  background-color: #AEA0FF;
+  color: white;
+}
+
+.pagination li.active a {
+  background-color: #7971D9;
+  color: white;
 }

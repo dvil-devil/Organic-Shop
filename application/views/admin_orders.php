@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-select.min.css">
 
     <link rel="stylesheet" href="../assets/css/custom/admin_global.css">
-    <link rel="stylesheet" href="../assets/css/custom/admin_orders.css">
     <script src="../assets/js/global/admin_orders.js"></script>
 </head>
 <script>

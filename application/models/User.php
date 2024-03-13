@@ -33,6 +33,7 @@ class User extends CI_Model
 
     public function signup_validation($email)
     {
+        $this->form_validation->set_error_delimiters('<div class="message_box danger">', '</div>');
         $this->form_validation->set_rules("first_name", "First Name", "required");
         $this->form_validation->set_rules("last_name", "Last Name", "required");
         $this->form_validation->set_rules("email", "Email", "required|valid_email");
@@ -43,11 +44,12 @@ class User extends CI_Model
             return validation_errors();
         }
         else if($this->get_user_by_email($email)) {
-            return "Email is already in use.";
+            return "<div class='message_box danger'>Email is already in use.</div>";
         }
     }
 
     function login_form_validation() {
+        $this->form_validation->set_error_delimiters('<div class="message_box danger">', '</div>');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'required');
     
@@ -65,7 +67,7 @@ class User extends CI_Model
             return "success";
         }
         else {
-            return "Incorrect email or password.";
+            return "<p class='message_box danger'>Incorrect email or password.<p>";
         }
     }
 }

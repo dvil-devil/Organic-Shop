@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    $.get('/carts/show_cart_items', function(res) {
+        $(".cart-items").html(res);
+    });
+
     $("body").on("click", ".remove_item", function() {
         $(this).closest("ul").closest("li").addClass("confirm_delete");
         $(".popover_overlay").fadeIn();
@@ -17,10 +21,11 @@ $(document).ready(function() {
     });
 
     $("body").on("click", ".increase_decrease_quantity", function() {
-        let input = $(this).parents().siblings('input');
+        let input = $(this).parents().siblings('input[name=quantity]');
         let input_val = parseInt(input.val());
-
-        console.log("TEST");
+        let price = $(this).parents().parents().siblings('span');
+        let price_val = parseInt(price.text());
+        let product_id = $(this).parents().parents().parent().siblings("input[name=product_id]").val();
 
         if($(this).attr("data-quantity-ctrl") == 1) {
             input.val(input_val + 1);
@@ -33,6 +38,7 @@ $(document).ready(function() {
 
         $("input[name=update_cart_item_id]").val($(this).val())
         $("input[name=update_cart_item_quantity]").val(input.val());
+        $("span[id="+product_id+"]").text(input.val()*price_val);
         $(".cart_items_form").trigger("submit");
     });
     

@@ -50,16 +50,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'products';
-$route['catalogue'] = 'products/catalogue';
-$route['cart'] = 'products/cart';
-$route['product_view'] = 'products/product_view';
+$route['search_products'] = 'products/search_products';
+$route['dashboard'] = 'products/dashboard';
+$route['products/(:any)/(:any)'] = 'products/product_view/$1/$2';
+$route['products/catalogue/page/(:any)'] = 'products/catalogue/$1';
 
 $route['login'] = 'users/login';
+$route['logout'] = 'users/logout';
 $route['authenticate/login'] = 'users/login_process';
 
 $route['signup'] = 'users/signup';
 $route['validate/signup'] = 'users/signup_process';
 
+$route['cart'] = 'carts';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

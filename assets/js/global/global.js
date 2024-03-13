@@ -9,4 +9,11 @@ $(document).ready(function(){
         $(".popover_overlay").fadeOut();
         $("body").removeClass("show_popover_overlay");
     });
+    setTimeout(function() {
+        $(".alert").fadeOut();
+    }, 2000);
+    $.get('/products/get_cart', function(res) {
+        $(".show_cart").html(res);
+    });
 });
+

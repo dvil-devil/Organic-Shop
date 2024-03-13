@@ -12,39 +12,27 @@
     <script src="../assets/js/vendor/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-select.min.css">
-
     <link rel="stylesheet" href="../assets/css/custom/admin_global.css">
     <script src="../assets/js/global/admin_products.js"></script>
-</head>
-<script>
+    <script>
     $(document).ready(function() {
-        $("#add_product_form").submit(function(event) {
-            event.preventDefault();
-            // Validate form fields
-            var isValid = true;
-            $(this).find("input, textarea").each(function() {
-            if ($(this).attr("required") && $(this).val().trim() === "") {
-                isValid = false;
-                $(this).addClass("error");
-            } else {
-                $(this).removeClass("error");
-            }
-            });
-            // If form is valid, submit the form
-            if (isValid) {
-                $(this).unbind('submit').submit();
-                $("#add_product_modal").modal("hide");
-            }
+        $("form").submit(function(event) {
+           
+        });
+        /* prototype add */
+        $(".switch").click(function() {
+            window.location.href = "products_dashboard.html";
         });
     });
 </script>
+</head>
 <body>
     <div class="wrapper">
         <header>
             <h1>Let’s provide fresh items for everyone.</h1>
             <h2>Products</h2>
             <div>
-                <a class="switch" href="catalogue">Switch to Shop View</a>
+                <a class="switch" href="/dashboard">Switch to Shop View</a>
                 <button class="profile">
                     <img src="../assets/images/profile.png" alt="#">
                 </button>
@@ -52,7 +40,7 @@
             <div class="dropdown show">
                 <a class="btn btn-secondary dropdown-toggle profile_dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                 <div class="dropdown-menu admin_dropdown" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="login">Logout</a>
+                    <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
             </div>
         </header>
@@ -65,9 +53,7 @@
         </aside>
         <section>
             <form action="process.php" method="post" class="search_form">
-                <?php echo form_open(); ?>
                 <input type="text" name="search" placeholder="Search Products">
-                <?php echo form_close(); ?>
             </form>
             <button class="add_product" data-toggle="modal" data-target="#add_product_modal">Add Product</button>
             <form action="process.php" method="post" class="status_form">
@@ -386,12 +372,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <button data-dismiss="modal" aria-label="Close" class="close_modal"></button>
-                    <form id="add_product_form" class="delete_product_form" action="add_product_process" method="post">
-                        <?php echo form_open(); ?>
+                    <form class="add_product_form form_data_action"  action="add_product" method="post" data-modal-action="0">
                         <h2>Add a Product</h2>
                         <ul>
                             <li>
-                                <input type="text" name="prouct_name" required>
+                                <input type="text" name="product_name" required>
                                 <label>Product Name</label>
                             </li>
                             <li>
@@ -400,7 +385,7 @@
                             </li>
                             <li>
                                 <label>Category</label>
-                                <select class="selectpicker">
+                                <select class="selectpicker" name=category>
                                     <option>Vegetables</option>
                                     <option>Fruits</option>
                                     <option>Pork</option>
@@ -409,24 +394,23 @@
                                 </select>
                             </li>
                             <li>
-                                <input type="number" name="price" value="1" required>
+                                <input type="number" name="price" value="1">
                                 <label>Price</label>
                             </li>
                             <li>
-                                <input type="number" name="inventory" value="1" required>
+                                <input type="number" name="inventory" value="1">
                                 <label>Inventory</label>
                             </li>
                             <li>
-                                <label>Upload Images (5 Max)</label>
-                                <ul>
-                                    <li><button type="button" class="upload_image"></button></li>
+                                <label class="image_label">Upload Images (5 Max)</label>
+                                <button type="button" class="upload_image"></button>
+                                <input type="file" class="image_input" name="image" accept="image/*"/>
+                                <ul class="image_preview_list">
                                 </ul>
-                                <input type="file" name="image" accept="image/*">
                             </li>
                         </ul>
                         <button type="button" data-dismiss="modal" aria-label="Close">Cancel</button>
                         <button type="submit">Save</button>
-                        <?php echo form_close(); ?>
                     </form>
                 </div>
             </div>

@@ -507,3 +507,45 @@ body .popover_overlay {
 .show_popover_overlay {
   overflow: hidden;
 }
+.message_box{
+  margin: 5px 0;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+  border-radius: 5px;
+  z-index: 3;
+}
+.alert{
+  display: inline-block;  
+  width: 50%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.danger{
+  background-color: rgba(255, 0, 0, 0.7);
+}
+.success{
+  background-color: green;
+}
+body .wrapper header div button.profile {
+  border: none;
+  width: auto;
+  border-radius: 0px;
+  background-color: transparent;
+}
+body .wrapper header div button.profile img {
+  border-radius: 50%;
+}
+.profile_dropdown {
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  border: none !important;
+  background: none !important;
+}
+.customer_dropdown a{
+  color: #2A2D3E;
+}

@@ -34,9 +34,8 @@ class Users extends CI_Controller
             $complete = $this->User->signup_completion($form_data);
 
             if ($complete) {
-                $new_user = $this->User->get_user_by_email($form_data['email']);
-                $this->session->set_userdata(array('user_id' => $new_user["id"], 'first_name' => $new_user['first_name'], 'is_admin' => $new_user['is_admin']));
-                redirect("products");
+                $this->session->set_flashdata('success', "Account created successfully!");
+                redirect("login");
             } else {
                 $this->session->set_flashdata('input_errors', "Sorry something went wrong, please try again.");
                 redirect("signup");
@@ -57,7 +56,7 @@ class Users extends CI_Controller
             $result = $this->User->login_authentication($user, $password);
 
             if ($result == "success") {
-                $this->session->set_userdata(array('user_id' => $user['id'], 'first_name' => $user['first_name']));
+                $this->session->set_userdata(array('user_id' => $user['id'], 'first_name' => $user['first_name'], 'is_admin' => $new_user['is_admin']));
                 redirect("products");
             } else {
                 $this->session->set_flashdata('input_errors', $result);
